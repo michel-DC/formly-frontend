@@ -2,23 +2,73 @@ import Header from "../../components/Header";
 import Navigation from "../../components/Navigation";
 import Hero from "../../components/Hero";
 import CourseCard from "../../components/CoursesCard";
+import { Home, MessageSquare, Dumbbell, User } from "lucide-react";
+import React from "react";
 
 export default function HomePage() {
+  const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
+  React.useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  let gridColumns = "1fr";
+  if (windowWidth >= 1024) gridColumns = "repeat(3, 1fr)";
+  else if (windowWidth >= 640) gridColumns = "repeat(2, 1fr)";
+
   const pageStyle = {
     minHeight: "100vh",
-    backgroundColor: "#f9fafb",
+    background: "#f6f7fb",
+    display: "flex",
+    flexDirection: "column",
+    paddingBottom: "80px",
   };
 
   const coursesContainerStyle = {
-    maxWidth: "1280px",
+    maxWidth: "1400px",
     margin: "0 auto",
-    padding: "32px 24px",
+    padding: "40px 12px 0 12px",
   };
 
   const coursesGridStyle = {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "24px",
+    gridTemplateColumns: gridColumns,
+    gap: "32px",
+  };
+
+  const bottomNavStyle = {
+    position: "fixed",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background: "#fff",
+    borderTop: "1px solid #e5e7eb",
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
+    height: "64px",
+    zIndex: 100,
+    boxShadow: "0 -2px 8px 0 rgba(0,0,0,0.04)",
+  };
+
+  const navItemStyle = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    color: "#6b7280",
+    fontSize: "12px",
+    fontWeight: 500,
+    gap: "2px",
+    cursor: "pointer",
+    flex: 1,
+    padding: "6px 0",
+    transition: "color 0.2s",
+  };
+
+  const navItemActiveStyle = {
+    ...navItemStyle,
+    color: "#f97316",
   };
 
   const courses = [
@@ -88,13 +138,29 @@ export default function HomePage() {
       <Header />
       <Navigation />
       <Hero />
-
-      {/* Courses Grid */}
       <div style={coursesContainerStyle}>
         <div style={coursesGridStyle}>
           {courses.map((course, index) => (
             <CourseCard key={index} {...course} />
           ))}
+        </div>
+      </div>
+      <div style={bottomNavStyle}>
+        <div style={navItemActiveStyle}>
+          <Home size={20} />
+          Reflection
+        </div>
+        <div style={navItemStyle}>
+          <MessageSquare size={20} />
+          Message
+        </div>
+        <div style={navItemStyle}>
+          <Dumbbell size={20} />
+          Training
+        </div>
+        <div style={navItemStyle}>
+          <User size={20} />
+          Profile
         </div>
       </div>
     </div>

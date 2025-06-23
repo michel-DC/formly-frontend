@@ -1,7 +1,7 @@
 "use client";
 
 import { Search, Coins, Menu } from "lucide-react";
-import LogoFormly from "../assets/LogoFormly.svg";
+import LogoFormly from "../assets/formly.png";
 
 export default function Header() {
   const headerStyle = {
@@ -25,8 +25,8 @@ export default function Header() {
   };
 
   const logoIconStyle = {
-    width: "32px",
-    height: "32px",
+    width: "70px",
+    height: "50px",
     backgroundColor: "#f97316",
     borderRadius: "8px",
     display: "flex",
@@ -114,7 +114,6 @@ export default function Header() {
         {/* Logo */}
         <div style={logoContainerStyle}>
           <img src={LogoFormly} alt="Formly Logo" style={logoIconStyle} />
-          <span style={brandTextStyle}>Formly</span>
         </div>
 
         {/* Search Bar */}

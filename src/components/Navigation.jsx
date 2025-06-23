@@ -1,75 +1,89 @@
 "use client";
 
-import { User, Dumbbell, ShoppingCart, Code } from "lucide-react";
+import {
+  Heart,
+  LineChart,
+  ShoppingCart,
+  Code,
+  ChevronRight,
+} from "lucide-react";
 
 export default function Navigation() {
   const navStyle = {
-    backgroundColor: "white",
-    borderBottom: "1px solid #e5e7eb",
+    background: "#fff",
+    borderBottom: "1px solid #f1f1f4",
+    padding: "32px 0 16px 0",
+    width: "100%",
   };
 
   const containerStyle = {
-    maxWidth: "1280px",
+    maxWidth: "1400px",
     margin: "0 auto",
-    padding: "0 24px",
-  };
-
-  const navListStyle = {
     display: "flex",
-    gap: "32px",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "56px",
   };
 
-  const getNavItemStyle = (active) => ({
+  const navItemStyle = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    color: "#6b7280",
+    fontSize: "13px",
+    fontWeight: 400,
+    gap: "8px",
+    cursor: "pointer",
+    minWidth: "80px",
+    position: "relative",
+  };
+
+  const navItemActiveStyle = {
+    ...navItemStyle,
+    color: "#111827",
+  };
+
+  const iconCircleStyle = {
+    background: "#f3f4f6",
+    borderRadius: "50%",
+    width: "40px",
+    height: "40px",
     display: "flex",
     alignItems: "center",
-    gap: "8px",
-    padding: "16px 0",
-    borderBottom: active ? "2px solid #f97316" : "2px solid transparent",
-    color: active ? "#ea580c" : "#6b7280",
-    cursor: "pointer",
-    transition: "color 0.2s ease",
-  });
-
-  const navTextStyle = {
-    fontSize: "14px",
-    fontWeight: "500",
-  };
-
-  const iconStyle = {
-    width: "16px",
-    height: "16px",
+    justifyContent: "center",
+    marginBottom: "4px",
   };
 
   const navItems = [
-    { icon: User, label: "Individual", active: true },
-    { icon: Dumbbell, label: "Training", active: false },
-    { icon: ShoppingCart, label: "E-commerce", active: false },
+    { icon: Heart, label: "Seduction", active: false },
+    { icon: LineChart, label: "Trading", active: false },
+    { icon: ShoppingCart, label: "E-commerce", active: true },
     { icon: Code, label: "Development", active: false },
   ];
 
   return (
     <nav style={navStyle}>
       <div style={containerStyle}>
-        <div style={navListStyle}>
-          {navItems.map((item, index) => (
+        {navItems.map((item, idx) => (
+          <div
+            key={item.label}
+            style={item.active ? navItemActiveStyle : navItemStyle}
+          >
             <div
-              key={index}
-              style={getNavItemStyle(item.active)}
-              onMouseEnter={(e) => {
-                if (!item.active) {
-                  e.target.style.color = "#111827";
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!item.active) {
-                  e.target.style.color = "#6b7280";
-                }
-              }}
+              style={item.active ? iconCircleStyle : { marginBottom: "4px" }}
             >
-              <item.icon style={iconStyle} />
-              <span style={navTextStyle}>{item.label}</span>
+              <item.icon
+                size={22}
+                style={{ color: item.active ? "#6b7280" : "#6b7280" }}
+              />
             </div>
-          ))}
+            <span>{item.label}</span>
+          </div>
+        ))}
+        <div
+          style={{ marginLeft: "32px", display: "flex", alignItems: "center" }}
+        >
+          <ChevronRight size={22} color="#6b7280" />
         </div>
       </div>
     </nav>
