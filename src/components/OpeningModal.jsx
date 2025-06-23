@@ -279,7 +279,7 @@ export default function Modal({ isOpen, onClose }) {
                   >
                     <category.icon
                       style={
-                        category.active
+                        category.activesssssssssssssssssssssssss
                           ? categoryIconActiveStyle
                           : categoryIconStyle
                       }

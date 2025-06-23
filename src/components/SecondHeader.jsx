@@ -4,7 +4,7 @@ import { Search, Coins, Menu } from "lucide-react";
 import LogoFormly from "../assets/formly.png";
 import SearchBarIcon from "../assets/IconSearchBar.svg";
 
-export default function Header({ onFilterClick }) {
+export default function SecondHeader({ onFilterClick }) {
   const headerStyle = {
     backgroundColor: "white",
     borderBottom: "1px solid #e5e7eb",
@@ -151,37 +151,6 @@ export default function Header({ onFilterClick }) {
           <img src={LogoFormly} alt="Formly Logo" style={logoIconStyle} />
         </div>
 
-        {/* Search Bar */}
-        <div style={searchContainerStyle}>
-          <div style={searchWrapperStyle}>
-            <Search style={searchIconStyle} />
-            <input
-              type="text"
-              placeholder="Search for trainings"
-              style={searchInputStyle}
-              onFocus={(e) => {
-                e.target.style.borderColor = "#f97316";
-                e.target.style.boxShadow = "0 0 0 2px rgba(249, 115, 22, 0.2)";
-              }}
-              onBlur={(e) => {
-                e.target.style.borderColor = "#d1d5db";
-                e.target.style.boxShadow = "none";
-              }}
-            />
-            <img
-              src={SearchBarIcon}
-              alt="search"
-              style={searchIconRightStyle}
-              onClick={onFilterClick}
-              onMouseEnter={(e) => {
-                e.target.style.color = "#ea580c";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.color = "#f97316";
-              }}
-            />
-          </div>
-        </div>
         {/* Right Section */}
 
         <div style={rightSectionStyle}>
