@@ -1,11 +1,16 @@
+"use client";
+
 import Header from "../../components/Header";
 import Navigation from "../../components/Navigation";
 import Hero from "../../components/Hero";
 import CourseCard from "../../components/CoursesCard";
 import { Home, MessageSquare, Dumbbell, User } from "lucide-react";
 import React from "react";
+import { useState } from "react";
+import Modal from "../../components/OpeningModal";
 
 export default function HomePage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
   React.useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -135,7 +140,7 @@ export default function HomePage() {
 
   return (
     <div style={pageStyle}>
-      <Header />
+      <Header onFilterClick={() => setIsModalOpen(true)} />
       <Navigation />
       <Hero />
       <div style={coursesContainerStyle}>
@@ -145,6 +150,7 @@ export default function HomePage() {
           ))}
         </div>
       </div>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <div style={bottomNavStyle}>
         <div style={navItemActiveStyle}>
           <Home size={20} />

@@ -2,8 +2,9 @@
 
 import { Search, Coins, Menu } from "lucide-react";
 import LogoFormly from "../assets/formly.png";
+import SearchBarIcon from "../assets/IconSearchBar.svg";
 
-export default function Header() {
+export default function Header({ onFilterClick }) {
   const headerStyle = {
     backgroundColor: "white",
     borderBottom: "1px solid #e5e7eb",
@@ -16,12 +17,14 @@ export default function Header() {
     justifyContent: "space-between",
     maxWidth: "1280px",
     margin: "0 auto",
+    height: "80px",
   };
 
   const logoContainerStyle = {
     display: "flex",
     alignItems: "center",
     gap: "8px",
+    flex: "0 0 auto", // Ajouté
   };
 
   const logoIconStyle = {
@@ -49,11 +52,22 @@ export default function Header() {
   const searchContainerStyle = {
     flex: "1",
     maxWidth: "384px",
-    margin: "0 32px",
+    margin: "0 24px", // Changé de "0 auto"
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center", // Ajouté
   };
 
   const searchWrapperStyle = {
+    display: "flex",
+    alignItems: "center",
     position: "relative",
+    background: "#f6f7fb",
+    borderRadius: "8px",
+    border: "1px solid #d1d5db",
+    padding: "0", // Changé de "0 8px 0 0"
+    width: "100%", // Ajouté
+    height: "40px", // Ajouté
   };
 
   const searchIconStyle = {
@@ -64,30 +78,51 @@ export default function Header() {
     color: "#9ca3af",
     width: "16px",
     height: "16px",
+    zIndex: 2,
   };
 
   const searchInputStyle = {
     width: "100%",
     paddingLeft: "40px",
-    paddingRight: "16px",
+    paddingRight: "40px",
     paddingTop: "8px",
     paddingBottom: "8px",
-    border: "1px solid #d1d5db",
+    border: "none",
     borderRadius: "8px",
     outline: "none",
     fontSize: "14px",
+    background: "transparent",
+    flex: 1,
+  };
+
+  const searchIconRightStyle = {
+    position: "absolute", // Ajouté
+    right: "12px", // Ajouté
+    top: "50%", // Ajouté
+    transform: "translateY(-50%)", // Ajouté
+    width: "20px",
+    height: "20px",
+    color: "#6b7280",
+    cursor: "pointer",
   };
 
   const rightSectionStyle = {
     display: "flex",
     alignItems: "center",
     gap: "24px",
+    flex: "0 0 auto", // Ajouté
   };
 
-  const coinsContainerStyle = {
+  const coinsBubbleStyle = {
     display: "flex",
     alignItems: "center",
-    gap: "4px",
+    gap: "8px",
+    background: "#efefef",
+    borderRadius: "999px",
+    padding: "4px 16px 4px 12px",
+    minWidth: "0",
+    minHeight: "0",
+    justifyContent: "center",
   };
 
   const coinsTextStyle = {
@@ -133,12 +168,24 @@ export default function Header() {
                 e.target.style.boxShadow = "none";
               }}
             />
+            <img
+              src={SearchBarIcon}
+              alt="search"
+              style={searchIconRightStyle}
+              onClick={onFilterClick}
+              onMouseEnter={(e) => {
+                e.target.style.color = "#ea580c";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.color = "#f97316";
+              }}
+            />
           </div>
         </div>
-
         {/* Right Section */}
+
         <div style={rightSectionStyle}>
-          <div style={coinsContainerStyle}>
+          <div style={coinsBubbleStyle}>
             <Coins
               style={{ width: "16px", height: "16px", color: "#f97316" }}
             />

@@ -2,10 +2,11 @@ export default function Hero() {
   const heroStyle = {
     background: "linear-gradient(to right, #fbb6ce, #fce7f3, #fed7aa)",
     padding: "48px 0",
+    borderRadius: "16px",
   };
 
   const containerStyle = {
-    maxWidth: "1280px",
+    maxWidth: "1000px",
     margin: "0 auto",
     padding: "0 24px",
     textAlign: "center",
@@ -14,7 +15,7 @@ export default function Hero() {
   const titleStyle = {
     fontSize: "24px",
     fontWeight: "600",
-    color: "#374151",
+    color: "#000000",
     marginBottom: "8px",
   };
 
