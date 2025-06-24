@@ -1,12 +1,39 @@
-# React + Vite
+# Project Documentation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Images
 
-Currently, two official plugins are available:
+Below are some screenshots and images related to the project:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p float="left">
+  <img src="./readme/home.png" width="full" alt="Home Screen" />
+  <img src="./readme/modal.png" width="full" alt="modal component" />
+  <img src="./readme/profile.png" width="full" alt="Profile Screen" />
+</p>
 
-## Expanding the ESLint configuration
+## Overview
+This project is a test for a mission with React Native and Expo. Its main objective is to validate and demonstrate the required functionalities and logic that would be used in a real mission context. The codebase includes components and modules that simulate or test critical operations, ensuring reliability and accuracy before deployment.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+### Prerequisites
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+
+### Installation
+
+1. Install project dependencies:
+    ```bash
+    npm install
+    ```
+
+### Running the Project
+
+Start the development server:
+```bash
+npm run dev
+```
+
+This will launch the application at localhost:5173. 
+
+## Note
+This project is not intended for use in production, but rather as a preparatory step for the deployment of the mission.
