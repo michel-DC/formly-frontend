@@ -24,7 +24,7 @@ export default function SecondHeader({ onFilterClick }) {
     display: "flex",
     alignItems: "center",
     gap: "8px",
-    flex: "0 0 auto", // Ajouté
+    flex: "0 0 auto",
   };
 
   const logoIconStyle = {
@@ -35,74 +35,6 @@ export default function SecondHeader({ onFilterClick }) {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-  };
-
-  const logoTextStyle = {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: "14px",
-  };
-
-  const brandTextStyle = {
-    fontSize: "20px",
-    fontWeight: "600",
-    color: "#111827",
-  };
-
-  const searchContainerStyle = {
-    flex: "1",
-    maxWidth: "384px",
-    margin: "0 24px", // Changé de "0 auto"
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center", // Ajouté
-  };
-
-  const searchWrapperStyle = {
-    display: "flex",
-    alignItems: "center",
-    position: "relative",
-    background: "#f6f7fb",
-    borderRadius: "8px",
-    border: "1px solid #d1d5db",
-    padding: "0", // Changé de "0 8px 0 0"
-    width: "100%", // Ajouté
-    height: "40px", // Ajouté
-  };
-
-  const searchIconStyle = {
-    position: "absolute",
-    left: "12px",
-    top: "50%",
-    transform: "translateY(-50%)",
-    color: "#9ca3af",
-    width: "16px",
-    height: "16px",
-    zIndex: 2,
-  };
-
-  const searchInputStyle = {
-    width: "100%",
-    paddingLeft: "40px",
-    paddingRight: "40px",
-    paddingTop: "8px",
-    paddingBottom: "8px",
-    border: "none",
-    borderRadius: "8px",
-    outline: "none",
-    fontSize: "14px",
-    background: "transparent",
-    flex: 1,
-  };
-
-  const searchIconRightStyle = {
-    position: "absolute", // Ajouté
-    right: "12px", // Ajouté
-    top: "50%", // Ajouté
-    transform: "translateY(-50%)", // Ajouté
-    width: "20px",
-    height: "20px",
-    color: "#6b7280",
     cursor: "pointer",
   };
 
@@ -110,7 +42,7 @@ export default function SecondHeader({ onFilterClick }) {
     display: "flex",
     alignItems: "center",
     gap: "24px",
-    flex: "0 0 auto", // Ajouté
+    flex: "0 0 auto",
   };
 
   const coinsBubbleStyle = {
@@ -146,12 +78,12 @@ export default function SecondHeader({ onFilterClick }) {
   return (
     <header style={headerStyle}>
       <div style={containerStyle}>
-        {/* Logo */}
-        <div style={logoContainerStyle}>
+        <div
+          style={logoContainerStyle}
+          onClick={() => (window.location.href = "/")}
+        >
           <img src={LogoFormly} alt="Formly Logo" style={logoIconStyle} />
         </div>
-
-        {/* Right Section */}
 
         <div style={rightSectionStyle}>
           <div style={coinsBubbleStyle}>

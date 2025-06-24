@@ -239,7 +239,6 @@ export default function Modal({ isOpen, onClose }) {
   return (
     <div style={overlayStyle} onClick={onClose}>
       <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-        {/* Header */}
         <div style={headerStyle}>
           <h2 style={titleStyle}>Filters</h2>
           <button
@@ -256,7 +255,6 @@ export default function Modal({ isOpen, onClose }) {
           </button>
         </div>
 
-        {/* Content */}
         <div style={contentStyle}>
           {/* Categories */}
           <div style={sectionStyle}>
@@ -279,7 +277,7 @@ export default function Modal({ isOpen, onClose }) {
                   >
                     <category.icon
                       style={
-                        category.activesssssssssssssssssssssssss
+                        category.active
                           ? categoryIconActiveStyle
                           : categoryIconStyle
                       }
@@ -302,7 +300,6 @@ export default function Modal({ isOpen, onClose }) {
             </div>
           </div>
 
-          {/* Budget */}
           <div style={sectionStyle}>
             <div style={sectionTitleStyle}>Budget</div>
             <div style={sectionSubtitleStyle}>Price per training</div>
@@ -316,7 +313,6 @@ export default function Modal({ isOpen, onClose }) {
             </div>
           </div>
 
-          {/* Learning time */}
           <div style={sectionStyle}>
             <div style={sectionTitleStyle}>Learning time</div>
             <div style={sectionSubtitleStyle}>
@@ -332,7 +328,6 @@ export default function Modal({ isOpen, onClose }) {
             </div>
           </div>
 
-          {/* Coaching */}
           <div style={sectionStyle}>
             <div style={sectionTitleStyle}>Coaching</div>
             <div style={sectionSubtitleStyle}>Includes coaching</div>
@@ -343,7 +338,6 @@ export default function Modal({ isOpen, onClose }) {
           </div>
         </div>
 
-        {/* Footer */}
         <div style={footerStyle}>
           <button style={showButtonStyle}>
             Show 341&nbsp; training courses

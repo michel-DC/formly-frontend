@@ -130,7 +130,6 @@ export default function CourseCard({
           "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)";
       }}
     >
-      {/* Image Container */}
       <div style={imageContainerStyle}>
         <img
           src={image || "/placeholder.svg?height=192&width=300"}
@@ -143,7 +142,6 @@ export default function CourseCard({
         </div>
       </div>
 
-      {/* Content */}
       <div style={contentStyle}>
         {/* Rating */}
         <div style={ratingContainerStyle}>
@@ -153,13 +151,10 @@ export default function CourseCard({
           <span style={instructorStyle}>{instructor}</span>
         </div>
 
-        {/* Title */}
         <h3 style={titleStyle}>{title}</h3>
 
-        {/* Description */}
         <p style={descriptionStyle}>{description}</p>
 
-        {/* Price and Learn More */}
         <div style={footerStyle}>
           <span style={priceStyle}>${price}</span>
           <a

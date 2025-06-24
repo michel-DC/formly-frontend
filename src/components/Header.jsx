@@ -24,7 +24,7 @@ export default function Header({ onFilterClick }) {
     display: "flex",
     alignItems: "center",
     gap: "8px",
-    flex: "0 0 auto", // Ajouté
+    flex: "0 0 auto",
   };
 
   const logoIconStyle = {
@@ -35,27 +35,16 @@ export default function Header({ onFilterClick }) {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-  };
-
-  const logoTextStyle = {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: "14px",
-  };
-
-  const brandTextStyle = {
-    fontSize: "20px",
-    fontWeight: "600",
-    color: "#111827",
+    cursor: "pointer",
   };
 
   const searchContainerStyle = {
     flex: "1",
     maxWidth: "384px",
-    margin: "0 24px", // Changé de "0 auto"
+    margin: "0 24px",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center", // Ajouté
+    alignItems: "center",
   };
 
   const searchWrapperStyle = {
@@ -65,9 +54,9 @@ export default function Header({ onFilterClick }) {
     background: "#f6f7fb",
     borderRadius: "8px",
     border: "1px solid #d1d5db",
-    padding: "0", // Changé de "0 8px 0 0"
-    width: "100%", // Ajouté
-    height: "40px", // Ajouté
+    padding: "0",
+    width: "100%",
+    height: "40px",
   };
 
   const searchIconStyle = {
@@ -96,10 +85,10 @@ export default function Header({ onFilterClick }) {
   };
 
   const searchIconRightStyle = {
-    position: "absolute", // Ajouté
-    right: "12px", // Ajouté
-    top: "50%", // Ajouté
-    transform: "translateY(-50%)", // Ajouté
+    position: "absolute",
+    right: "12px",
+    top: "50%",
+    transform: "translateY(-50%)",
     width: "20px",
     height: "20px",
     color: "#6b7280",
@@ -110,7 +99,7 @@ export default function Header({ onFilterClick }) {
     display: "flex",
     alignItems: "center",
     gap: "24px",
-    flex: "0 0 auto", // Ajouté
+    flex: "0 0 auto",
   };
 
   const coinsBubbleStyle = {
@@ -146,12 +135,13 @@ export default function Header({ onFilterClick }) {
   return (
     <header style={headerStyle}>
       <div style={containerStyle}>
-        {/* Logo */}
-        <div style={logoContainerStyle}>
+        <div
+          style={logoContainerStyle}
+          onClick={() => (window.location.href = "/")}
+        >
           <img src={LogoFormly} alt="Formly Logo" style={logoIconStyle} />
         </div>
 
-        {/* Search Bar */}
         <div style={searchContainerStyle}>
           <div style={searchWrapperStyle}>
             <Search style={searchIconStyle} />
@@ -182,7 +172,6 @@ export default function Header({ onFilterClick }) {
             />
           </div>
         </div>
-        {/* Right Section */}
 
         <div style={rightSectionStyle}>
           <div style={coinsBubbleStyle}>

@@ -74,7 +74,6 @@ export default function Sidebar() {
 
   return (
     <div style={sidebarStyle}>
-      {/* Settings Section */}
       <div style={sectionStyle}>
         <h3 style={sectionTitleStyle}>Settings</h3>
         {settingsItems.map((item, index) => (
@@ -100,7 +99,6 @@ export default function Sidebar() {
         ))}
       </div>
 
-      {/* Help Section */}
       <div style={sectionStyle}>
         <h3 style={sectionTitleStyle}>Help</h3>
         {helpItems.map((item, index) => (
