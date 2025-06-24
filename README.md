@@ -11,7 +11,7 @@ Below are some screenshots and images related to the project:
 </p>
 
 ## Overview
-This project is a test for a mission with React Native and Expo. Its main objective is to validate and demonstrate the required functionalities and logic that would be used in a real mission context. The codebase includes components and modules that simulate or test critical operations, ensuring reliability and accuracy before deployment.
+This project is a test for a mission with React.js. Its main objective is to validate and demonstrate the required functionalities and logic that would be used in a real mission context. The codebase includes components and modules that simulate or test critical operations, ensuring reliability and accuracy before deployment.
 
 ## Getting Started
 
