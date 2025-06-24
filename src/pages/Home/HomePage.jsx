@@ -84,7 +84,7 @@ export default function HomePage() {
         "Start your yoga journey with expert guidance and foundational poses",
       price: "109",
       rating: 4,
-      image: "src/assets/images/yoga.jpeg",
+      image: "/assets/images/yoga.jpeg",
       instructor: "Sarah Chen",
     },
     {
@@ -94,7 +94,7 @@ export default function HomePage() {
         "Comprehensive training program covering modern fitness techniques",
       price: "209",
       rating: 5,
-      image: "src/assets/images/yoga.jpeg",
+      image: "/assets/images/yoga.jpeg",
       instructor: "Alex Johnson",
     },
     {
@@ -104,7 +104,7 @@ export default function HomePage() {
         "Master the basics of strength training with proper form and technique",
       price: "249",
       rating: 4,
-      image: "src/assets/images/yoga.jpeg",
+      image: "/assets/images/yoga.jpeg",
       instructor: "Mike Thompson",
     },
     {
@@ -114,7 +114,7 @@ export default function HomePage() {
         "Take your practice to the next level with challenging sequences",
       price: "159",
       rating: 5,
-      image: "src/assets/images/yoga.jpeg",
+      image: "/assets/images/yoga.jpeg",
       instructor: "Lisa Park",
     },
     {
@@ -123,7 +123,7 @@ export default function HomePage() {
       description: "High-intensity interval training for maximum results",
       price: "189",
       rating: 4,
-      image: "src/assets/images/yoga.jpeg",
+      image: "/assets/images/yoga.jpeg",
       instructor: "David Kim",
     },
     {
@@ -133,7 +133,7 @@ export default function HomePage() {
         "Learn the fundamentals of powerlifting with expert coaching",
       price: "299",
       rating: 5,
-      image: "src/assets/images/yoga.jpeg",
+      image: "/assets/images/yoga.jpeg",
       instructor: "Emma Wilson",
     },
   ];

@@ -1,8 +1,8 @@
 "use client";
 
 import { Search, Coins, Menu } from "lucide-react";
-import LogoFormly from "../assets/formly.png";
-import SearchBarIcon from "../assets/IconSearchBar.svg";
+import LogoFormly from "/assets/formly.png";
+import SearchBarIcon from "/assets/IconSearchBar.svg";
 
 export default function Header({ onFilterClick }) {
   const headerStyle = {

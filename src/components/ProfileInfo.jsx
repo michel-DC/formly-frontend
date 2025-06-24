@@ -1,4 +1,4 @@
-import EnzoImage from "../assets/enzo.jpg";
+import EnzoImage from "/assets/enzo.jpg";
 
 export default function ProfileInfo() {
   const profileContainerStyle = {
