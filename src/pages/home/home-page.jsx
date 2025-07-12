@@ -4,14 +4,27 @@ import Header from "../../components/home-page/header";
 import Navigation from "../../components/home-page/navigation";
 import Hero from "../../components/home-page/hero";
 import CourseCard from "../../components/home-page/courses-card";
+import Onboarding from "../../components/home-page/onboarding/onboarding";
 import { Home, MessageSquare, Dumbbell, User } from "lucide-react";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "../../components/home-page/opening-modal";
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isOnboardingOpen, setIsOnboardingOpen] = useState(false);
   const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
+
+  // Vérifie si l'utilisateur a déjà vu l'onboarding
+  useEffect(() => {
+    const hasSeenOnboarding = localStorage.getItem(
+      "hasSeenTheOnboardingHomePage"
+    );
+    if (!hasSeenOnboarding) {
+      setIsOnboardingOpen(true);
+    }
+  }, []);
+
   React.useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -89,18 +102,19 @@ export default function HomePage() {
       <Header onFilterClick={() => setIsModalOpen(true)} />
       <Navigation />
       <Hero />
-
-      <div className="max-w-7xl mx-auto px-3 pt-10">
+      <div className="max-w-7xl mx-auto pt-10">
         <div className={`grid ${gridColumns} gap-8`}>
           {courses.map((course, index) => (
             <CourseCard key={index} {...course} />
           ))}
         </div>
       </div>
-
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-
-      <div className="fixed left-0 right-0 bottom-0 bg-white border-t border-gray-200 flex justify-around items-center h-16 z-100 shadow-lg">
+      <Onboarding
+        isOpen={isOnboardingOpen}
+        onClose={() => setIsOnboardingOpen(false)}
+      />
+      <div className="fixed left-0 right-0 bottom-0 bg-white border-t border-gray-200 flex justify-around items-center h-16 z-60 shadow-lg">
         <div className="flex flex-col items-center text-orange-500 text-xs font-medium gap-0.5 cursor-pointer flex-1 py-1.5 transition-colors">
           <Home size={20} />
           Reflection

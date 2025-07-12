@@ -5,7 +5,7 @@ import ProfilePage from "./pages/profile/profile-page";
 
 function App() {
   return (
-    <div>
+    <main>
       <Routes>
         <Route path="/" element={<HomePage />} />
       </Routes>
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/profile" element={<ProfilePage />} />
       </Routes>
-    </div>
+    </main>
   );
 }
 
