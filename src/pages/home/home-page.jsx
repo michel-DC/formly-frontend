@@ -1,13 +1,13 @@
 "use client";
 
-import Header from "../../components/Header";
-import Navigation from "../../components/Navigation";
-import Hero from "../../components/Hero";
-import CourseCard from "../../components/CoursesCard";
+import Header from "../../components/home-page/header";
+import Navigation from "../../components/home-page/navigation";
+import Hero from "../../components/home-page/hero";
+import CourseCard from "../../components/home-page/courses-card";
 import { Home, MessageSquare, Dumbbell, User } from "lucide-react";
 import React from "react";
 import { useState } from "react";
-import Modal from "../../components/OpeningModal";
+import Modal from "../../components/home-page/opening-modal";
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,63 +18,9 @@ export default function HomePage() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  let gridColumns = "1fr";
-  if (windowWidth >= 1024) gridColumns = "repeat(3, 1fr)";
-  else if (windowWidth >= 640) gridColumns = "repeat(2, 1fr)";
-
-  const pageStyle = {
-    minHeight: "100vh",
-    background: "#f6f7fb",
-    display: "flex",
-    flexDirection: "column",
-    paddingBottom: "80px",
-  };
-
-  const coursesContainerStyle = {
-    maxWidth: "1400px",
-    margin: "0 auto",
-    padding: "40px 12px 0 12px",
-  };
-
-  const coursesGridStyle = {
-    display: "grid",
-    gridTemplateColumns: gridColumns,
-    gap: "32px",
-  };
-
-  const bottomNavStyle = {
-    position: "fixed",
-    left: 0,
-    right: 0,
-    bottom: 0,
-    background: "#fff",
-    borderTop: "1px solid #e5e7eb",
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
-    height: "64px",
-    zIndex: 100,
-    boxShadow: "0 -2px 8px 0 rgba(0,0,0,0.04)",
-  };
-
-  const navItemStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    color: "#6b7280",
-    fontSize: "12px",
-    fontWeight: 500,
-    gap: "2px",
-    cursor: "pointer",
-    flex: 1,
-    padding: "6px 0",
-    transition: "color 0.2s",
-  };
-
-  const navItemActiveStyle = {
-    ...navItemStyle,
-    color: "#f97316",
-  };
+  let gridColumns = "grid-cols-1";
+  if (windowWidth >= 1024) gridColumns = "grid-cols-3";
+  else if (windowWidth >= 640) gridColumns = "grid-cols-2";
 
   const courses = [
     {
@@ -139,32 +85,36 @@ export default function HomePage() {
   ];
 
   return (
-    <div style={pageStyle}>
+    <div className="min-h-screen bg-gray-50 flex flex-col pb-20">
       <Header onFilterClick={() => setIsModalOpen(true)} />
       <Navigation />
       <Hero />
-      <div style={coursesContainerStyle}>
-        <div style={coursesGridStyle}>
+
+      <div className="max-w-7xl mx-auto px-3 pt-10">
+        <div className={`grid ${gridColumns} gap-8`}>
           {courses.map((course, index) => (
             <CourseCard key={index} {...course} />
           ))}
         </div>
       </div>
+
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      <div style={bottomNavStyle}>
-        <div style={navItemActiveStyle}>
+
+      <div className="fixed left-0 right-0 bottom-0 bg-white border-t border-gray-200 flex justify-around items-center h-16 z-100 shadow-lg">
+        <div className="flex flex-col items-center text-orange-500 text-xs font-medium gap-0.5 cursor-pointer flex-1 py-1.5 transition-colors">
           <Home size={20} />
           Reflection
         </div>
-        <div style={navItemStyle}>
+
+        <div className="flex flex-col items-center text-gray-500 text-xs font-medium gap-0.5 cursor-pointer flex-1 py-1.5 transition-colors">
           <MessageSquare size={20} />
           Message
         </div>
-        <div style={navItemStyle}>
+        <div className="flex flex-col items-center text-gray-500 text-xs font-medium gap-0.5 cursor-pointer flex-1 py-1.5 transition-colors">
           <Dumbbell size={20} />
           Training
         </div>
-        <div style={navItemStyle}>
+        <div className="flex flex-col items-center text-gray-500 text-xs font-medium gap-0.5 cursor-pointer flex-1 py-1.5 transition-colors">
           <User size={20} />
           Profile
         </div>

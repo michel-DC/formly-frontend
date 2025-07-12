@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./pages/Home/HomePage";
-import ProfilePage from "./pages/Profile/ProfilePage";
+import HomePage from "./pages/home/home-page";
+import ProfilePage from "./pages/profile/profile-page";
 
 function App() {
   return (
