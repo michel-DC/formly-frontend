@@ -1,13 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { handleLogin } from "./login-logic";
+import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 
 export default function LoginPage() {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -39,7 +43,6 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen w-full bg-[#FCFCFC] flex items-center justify-center relative overflow-hidden">
-      {/* Décorations globales */}
       <img
         src="/assets/icons/decorations/login-register/top-orange.svg"
         alt=""
@@ -52,23 +55,30 @@ export default function LoginPage() {
         className="pointer-events-none select-none absolute left-0 bottom-0 w-[180px] md:w-[260px] lg:w-[320px] -translate-x-[20%]"
       />
 
-      {/* Formulaire animé */}
       <div
-        className="relative z-10 w-full max-w-xl mx-auto bg-white rounded-2xl shadow-xl px-12 py-14 flex flex-col items-center overflow-hidden"
+        className="relative z-10 w-full max-w-2xl mx-auto bg-[#FFFFFF]/60 rounded-2xl shadow-xl px-4 sm:px-8 md:px-16 lg:px-24 py-10 sm:py-16 md:py-24 lg:py-36 flex flex-col items-center overflow-hidden"
         style={{ boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.07)" }}
       >
-        {/* Décorations internes */}
+        <button
+          type="button"
+          onClick={() => navigate(-1)}
+          className="absolute left-6 top-6 flex items-center gap-2 text-gray-500 hover:text-orange-500 transition-colors cursor-pointer"
+          aria-label="Retour à l'accueil"
+        >
+          <ArrowLeft size={20} />
+          <span className="text-sm">Retour</span>
+        </button>
         <img
           src="/assets/icons/decorations/login-register/inside-bottom-blue.svg"
           alt=""
-          className="pointer-events-none select-none absolute left-0 bottom-0 w-20"
+          className="pointer-events-none select-none absolute left-0 bottom-0 w-30"
         />
         <img
           src="/assets/icons/decorations/login-register/inside-top-orange.svg"
           alt=""
-          className="pointer-events-none select-none absolute right-0 top-0 w-20"
+          className="pointer-events-none select-none absolute right-0 top-0 w-30"
         />
-        <h1 className="text-2xl md:text-3xl font-semibold text-orange-500 mb-10 text-center">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#FF9900] mb-10 text-center">
           Se connecter
         </h1>
         <AnimatePresence mode="wait">
@@ -152,15 +162,28 @@ export default function LoginPage() {
                     </svg>
                   </span>
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     id="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Votre mot de passe"
                     required
-                    className="block w-full pl-12 pr-4 py-4 rounded-xl border-none bg-[#FCFCFC] text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 text-base shadow-sm"
+                    className="block w-full pl-12 pr-12 py-4 rounded-xl border-none bg-[#FCFCFC] text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 text-base shadow-sm"
                     style={{ background: "#FCFCFC" }}
                   />
+                  <button
+                    type="button"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-orange-500"
+                    tabIndex={-1}
+                    onClick={() => setShowPassword((v) => !v)}
+                    aria-label={
+                      showPassword
+                        ? "Masquer le mot de passe"
+                        : "Afficher le mot de passe"
+                    }
+                  >
+                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                  </button>
                 </div>
               </div>
               {error && (
